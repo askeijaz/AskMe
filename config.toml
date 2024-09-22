@@ -1,0 +1,99 @@
+# Hugo Configuration File
+
+title = "Ask me"
+email = "askme@gmail.com"
+timezone = "UTC"
+baseURL = ""
+logo = "assets/images/logo.png"
+favicon = "assets/images/favicon.ico"
+author = "ES"
+pagination.pagerSize = 30
+disqusShortname = "ES"  # Hugo Disqus shortname
+languageCode = "en-us"
+feed = [ { name = "atom",  path = "index.xml" }, { name = "rss",  path = "index.xml" } ]
+
+[markup]
+  [markup.highlight]
+    style = "monokai"  # You can choose the style you prefer
+
+[sass]
+  sassDir = "assets/scss"
+  style = "compressed"
+
+[googleAnalytics]
+  id = "G-xxxxxxxx"  # Replace with your actual Google Analytics ID
+
+[formspree]
+  id = "xxxxxxxx"  # Replace with your actual Formspree ID
+
+[authors]
+  [authors.ES]
+    name = "ES"
+    display_name = "ES"
+    avatar = "assets/images/ES.png"
+    email = "askme@gmail.com"
+    web = "https://www.askme.com"
+    twitter = "https://twitter.com/askme"
+    description = "Author of AskMe, a template available for Hugo. You are currently previewing Hugo template demo."
+  
+  [authors.SE]
+    name = "SE"
+    display_name = "SE"
+    avatar = "assets/images/SE.png"
+    email = "askme@gmail.com"
+    web = "https://www.askme.com"
+    twitter = "https://twitter.com/askme"
+    description = "This is the author box. Write a short description of the author here. You are currently previewing AskMe theme demo, a Hugo template compatible with Github pages."
+
+[social]
+  instagram = "https://www.instagram.com/askme/"
+  facebook = "https://www.facebook.com/askme/"
+  twitter = "https://twitter.com/askme/"
+
+[outputs]
+  home = ["HTML", "RSS", "Sitemap", "JSON", "404"]
+  page = ["HTML"]
+  section = ["HTML", "RSS"]
+  taxonomy = ["HTML", "RSS"]
+  term = ["HTML", "RSS"]
+
+[params]
+  # Add any custom parameters for the theme or site configuration here
+
+[deploy]
+  [deploy.firebase]
+    # Configuration for Firebase deployment, if used
+    projectId = "" # Your Firebase project ID
+    token = "" # Firebase token
+
+[server]
+  # Server settings, if needed
+    [server.tls]
+      # TLS settings if using HTTPS locally
+      caFile = ""
+      certFile = ""
+      keyFile = ""
+
+[[menu.main]]
+  name = "Home"
+  url = "/"
+  weight = 1
+
+[[menu.main]]
+  name = "About"
+  url = "/about/"
+  weight = 2
+
+[[menu.main]]
+  name = "Contact"
+  url = "/contact/"
+  weight = 3
+
+[taxonomies]
+  author = "authors"
+  category = "categories"
+  tag = "tags"
+
+[module]
+  [[module.imports]]
+    path = ""

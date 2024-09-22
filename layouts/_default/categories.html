@@ -1,0 +1,20 @@
+---
+title: "Categories"
+layout: baseof
+---
+
+<h1>{{ .Title }}</h1>
+
+{{ $categories := .Site.Taxonomies.categories }}
+{{ range $name, $taxonomy := $categories }}
+  <h4 class="mt-5 mb-4 pb-2 border-bottom" id="{{ $name | lower | replace " " "-" }}"><span class="text-capitalize small font-weight-bold">In "{{ $name }}"</span></h4>
+  <div class="row">
+    {{ range $taxonomy.Pages }}
+      {{ if .Title }}
+        <div class="col-md-4 mb-5">
+          {{ partial "postbox.html" . }}
+        </div>
+      {{ end }}
+    {{ end }}
+  </div>
+{{ end }}

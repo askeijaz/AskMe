@@ -1,0 +1,27 @@
+{{ define "main" }}
+<!-- Post Featured Image -->
+{{ if .Params.image }}
+<div class="text-center mx-auto mb-5">
+  <img class="featured-image text-center mx-auto rounded" src="{{ .Site.BaseURL }}/{{ .Params.image }}" alt="{{ .Title }}">
+</div>
+{{ end }}
+<!-- End Featured Image -->
+
+<div class="col-lg-8 mx-auto">
+
+  <div class="mainheading">
+    <h1 class="posttitle">{{ .Title }}</h1>
+  </div>
+
+  <div class="article-post serif-font">
+    {{ .Content }}
+  </div>
+
+  {{ if .Params.comments }}
+  <div id="comments">
+    {{ partial "disqus.html" . }}
+  </div>
+  {{ end }}
+
+</div>
+{{ end }}

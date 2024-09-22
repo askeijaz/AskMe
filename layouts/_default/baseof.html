@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<link rel="icon" href="{{ .Site.BaseURL }}/{{ .Site.Params.favicon }}">
+
+<title>{{ .Title }} | {{ .Site.Title }}</title>
+
+<!-- SEO Metadata -->
+<meta name="description" content="{{ .Site.Params.description }}">
+<meta name="keywords" content="{{ .Site.Params.keywords | strings.Join ", " }}">
+<meta name="author" content="{{ .Site.Params.author }}">
+<meta property="og:title" content="{{ .Title }} | {{ .Site.Title }}">
+<meta property="og:description" content="{{ .Site.Params.description }}">
+<meta property="og:image" content="{{ .Site.BaseURL }}/path/to/your/image.jpg">
+<meta property="og:url" content="{{ .Permalink }}">
+<meta property="og:type" content="website">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="{{ .Title }}">
+<meta name="twitter:description" content="{{ .Site.Params.description }}">
+<meta name="twitter:image" content="{{ .Site.BaseURL }}/path/to/your/image.jpg">
+
+{{ .Head }}
+
+<link href="{{ .Site.BaseURL }}/assets/css/theme.css" rel="stylesheet">
+
+<!-- custom CSS - Remove this if you don't use it or choose to customize the stylesheet with sass-->
+<link href="{{ .Site.BaseURL }}/assets/css/custom.css" rel="stylesheet">
+<!-- custom CSS end-->
+    
+{{ if eq .Site.Params.environment "production" }}       
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id={{ .Site.Params.ganalytics }}"></script>
+<script>
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', '{{ .Site.Params.ganalytics }}');
+</script>
+{{ end }}
+   
+</head>   
+    
+{{ $layout := printf "layout-%s" .Params.layout }}
+<body class="{{ $layout }}">
+
+<!-- Menu Navigation
+================================================== -->
+<div class="navigation-wrap start-header start-style">
+    <nav class="navbar navbar-expand-lg">
+        <div class="container">
+
+          <a class="navbar-brand text-dark font-weight-bold big d-flex align-items-center" href="{{ .Site.BaseURL }}/">
+          {{ if .Site.Params.logo }}
+          <img class="mr-2" src="{{ .Site.BaseURL }}/{{ .Site.Params.logo }}" alt="logo"> 
+          {{ else }}
+          <span class="d-none d-md-inline-block">{{ .Site.Title }}</span>
+          {{ end }}
+          </a> | 
+          
+          <div class="d-flex align-items-center">
+            
+            <span class="ml-3 text-muted small">Follow</span>
+
+            <a class="d-inline-block social-icon" target="_blank" href="{{ .Site.Params.social.twitter }}">
+              <!-- Twitter SVG Icon -->
+            </a>
+            
+            <a class="d-inline-block social-icon" target="_blank" href="{{ .Site.Params.social.instagram }}">
+              <!-- Instagram SVG Icon -->
+            </a>
+      
+            <a class="d-inline-block social-icon" target="_blank" href="{{ .Site.Params.social.facebook }}">
+              <!-- Facebook SVG Icon -->
+            </a>
+
+          </div>
+    
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+            <!-- Toggle Button SVG Icon -->
+          </button>
+          
+          <div class="collapse navbar-collapse" id="navbarResponsive">
+            <ul class="navbar-nav ml-auto font-weight-bold d-flex align-items-center">
+              {{ range .Site.Data.menus.topmenu }}
+              <li class="nav-item">
+                <a class="nav-link px-3 {{ if .class }}{{ .class }}{{ end }}" href="{{ if not .external }}{{ .Site.BaseURL }}/{{ end }}{{ .Permalink }}" alt="{{ .title }}">{{ .title }}</a>
+              </li>
+              {{ end }}
+            </ul>
+          </div>
+
+        </div>
+      </nav>
+    </div>  
+
+<!-- Container
+================================================== -->    
+<main class="container">   
+      {{ .Content }}  
+</main>
+
+<!-- Footer
+================================================== -->    
+<footer class="footer container text-center">
+  <!-- CREDITS BEGIN.-->
+  <!-- If you want to support my work, please donate to remove the credits. This helps me keep it up and running: https://www.buymeacoffee.com/askme -->
+  <div class="credits mx-auto text-center mb-3">
+    <a class="hover-opacity font-weight-bold" href="https://askme.com/">
+      <img src="{{ .Site.BaseURL }}/assets/images/credits.png" alt="powered by askme">
+    </a>
+  </div>
+  <!-- CREDITS END -->
+
+  <ul class="p-0 mb-1 small">
+    {{ range .Site.Data.menus.footermenu }}
+    <li>
+      <a href="{{ if not .external }}{{ .Site.BaseURL }}/{{ end }}{{ .Permalink }}" alt="{{ .title }}">{{ .title }}</a>
+    </li>
+    {{ end }}
+  </ul>
+  <div class="copyright small">
+     Copyright © {{ .Site.Title }}. All rights reserved.
+  </div>
+</footer>
+
+<!-- JavaScript
+================================================== -->    
+<script src="{{ .Site.BaseURL }}/assets/js/jquery.min.js"></script>   
+<script src="{{ .Site.BaseURL }}/assets/js/bootstrap.min.js"></script>   
+<script src="{{ .Site.BaseURL }}/assets/js/theme.js"></script>    
+    
+</body>
+</html>

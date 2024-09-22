@@ -1,0 +1,22 @@
+---
+title: "Categories"
+layout: categories
+permalink: "/categories/"
+---
+
+<h1>{{ .Title }}</h1>
+
+{{ range $name, $taxonomy := .Site.Taxonomies.category }}
+    <h4 class="mt-5 mb-4 pb-2 border-bottom" id="{{ $name | urlize }}">
+        <span class="text-capitalize small font-weight-bold">In "{{ $name }}"</span>
+    </h4>
+    <div class="row">
+        {{ range $taxonomy }}
+            {{ if .Title }}
+                <div class="col-md-4 mb-5">
+                    {{ partial "postbox.html" . }}
+                </div>
+            {{ end }}
+        {{ end }}
+    </div>
+{{ end }}

@@ -1,0 +1,22 @@
+{{ define "main" }}
+<main class="container">
+  <h1 class="page-title">Posts tagged with "{{ .Title }}"</h1>
+  
+  {{ with .Params.description }}
+    <p class="lead">{{ . }}</p>
+  {{ end }}
+
+  {{ range .Pages }}
+    <article class="post-summary">
+      <h2 class="post-title">
+        <a href="{{ .Permalink }}">{{ .Title }}</a>
+      </h2>
+      <p class="post-excerpt">{{ .Summary }}</p>
+      <a href="{{ .Permalink }}" class="btn btn-primary">Read more</a>
+    </article>
+  {{ else }}
+    <p>No posts found with this tag.</p>
+  {{ end }}
+  
+</main>
+{{ end }}

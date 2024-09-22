@@ -1,0 +1,124 @@
+{{ define "main" }}
+<!-- Begin Article
+================================================== -->
+
+<div class="row">
+
+<!-- Post -->
+{{ $author := index .Site.Data.authors (.Params.author | lower) }}
+{{ if $author }}
+    <div class="row post-top-meta">
+        <div class="col-md-2">
+        <img class="author-thumb" src="{{ .Site.BaseURL }}/{{ $author.avatar }}" alt="{{ $author.display_name }}">
+        </div>
+        <div class="col-md-10">
+        <a target="_blank" class="link-dark" href="{{ $author.web }}">{{ $author.display_name }}</a>
+        <a target="_blank" href="{{ $author.twitter }}" class="btn follow">Follow</a>
+        <span class="author-description">{{ $author.description }}</span>
+        </div>
+    </div>
+    {{ else }}
+        <p>Author not found.</p>
+    {{ end }}
+
+
+    <div class="col-sm-8">
+        <!-- Post Featured Image -->
+        {{ if .Params.image }}
+        <img class="featured-image img-fluid rounded" src="{{ .Site.BaseURL }}/{{ .Params.image }}" alt="{{ .Title }}">
+        {{ end }}
+        <!-- End Featured Image -->
+
+        <div class="mainheading">
+            <!-- Post Categories -->
+            <div class="after-post-tags">
+                <ul class="tags">
+                    {{ $categories := .Params.categories | sort }}
+                    {{ range $categories }}
+                    <li>
+                        <a href="{{ .Site.BaseURL }}/categories#{{ . | urlize }}">{{ . }}</a>
+                    </li>
+                    {{ end }}
+                </ul>
+            </div>
+            <!-- End Categories -->
+
+            <!-- Post Title -->
+            <h1 class="posttitle">{{ .Title }}</h1>
+        </div>
+
+        <!-- Post Content -->
+        <div class="article-post serif-font">
+            {{ .Content }}
+            <div class="clearfix"></div>
+        </div>
+
+        <!-- Post Date -->
+        <p>
+            <small>
+                <span class="post-date">
+                    <time class="post-date" datetime="{{ .Date.Format "2006-01-02" }}">{{ .Date.Format "January 2, 2006" }}</time>
+                </span>
+                {{ if .Params.last_modified_at }}
+                (Updated: <time datetime="{{ .Params.last_modified_at | time.Format "2006-01-02T15:04:05Z07:00" }}" itemprop="dateModified">{{ .Params.last_modified_at | time.Format "Jan 2, 2006" }}</time>)
+                {{ end }}
+            </small>
+        </p>
+
+        <!-- Prev/Next -->
+        <div class="row PageNavigation mt-4 prevnextlinks d-flex justify-content-between">
+            {{ if .PrevPage }}
+            <div class="col-md-6 rightborder pl-0">
+                <a class="thepostlink" href="{{ .PrevPage.Permalink }}">&laquo; {{ .PrevPage.Title }}</a>
+            </div>
+            {{ else }}
+                <div>No previous page available.</div>
+            {{ end }}
+            
+            {{ if .NextPage }}
+                <div class="col-md-6 text-right pr-0">
+                    <a class="thepostlink" href="{{ .NextPage.Permalink }}">{{ .NextPage.Title }} &raquo;</a>
+                </div>
+            {{ else }}
+                <div>No next page available.</div>
+            {{ end }}
+        </div>
+        <!-- End Prev/Next -->
+
+        <!-- Author Box -->
+        {{ if .Params.author }}
+        <div class="row post-top-meta">
+            <div class="col-md-2">
+                <img class="author-thumb" src="{{ .Site.BaseURL }}/{{ $author.avatar }}" alt="{{ $author.display_name }}">
+            </div>
+            <div class="col-md-10">
+                <a target="_blank" class="link-dark" href="{{ $author.web }}">{{ $author.display_name }}</a>
+                <a target="_blank" href="{{ $author.twitter }}" class="btn follow">Follow</a>
+                <span class="author-description">{{ $author.description }}</span>
+            </div>
+        </div>
+        {{ end }}
+
+        <!-- Begin Comments
+        ================================================== -->
+        <section>
+            <div id="comments">
+                {{ partial "disqus.html" . }}
+            </div>
+        </section>
+        <!--End Comments
+        ================================================== -->
+
+    </div>
+    <!-- End Post -->
+
+    <!-- Sidebar -->
+    <div class="col-sm-4">
+        {{ partial "sidebar.html" . }}
+    </div>
+
+</div>
+
+<!-- End Article
+================================================== -->
+{{ end }}

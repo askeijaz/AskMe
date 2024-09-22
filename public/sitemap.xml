@@ -1,0 +1,123 @@
+
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  
+    <url>
+      <loc>/404/</loc>
+      
+      <changefreq>weekly</changefreq>
+      <priority>0.5</priority>
+    </url>
+  
+    <url>
+      <loc>/about/</loc>
+      
+      <changefreq>weekly</changefreq>
+      <priority>0.5</priority>
+    </url>
+  
+    <url>
+      <loc>/authors/</loc>
+      
+      <changefreq>weekly</changefreq>
+      <priority>0.5</priority>
+    </url>
+  
+    <url>
+      <loc>/categories/</loc>
+      
+      <changefreq>weekly</changefreq>
+      <priority>0.5</priority>
+    </url>
+  
+    <url>
+      <loc>/contact/</loc>
+      
+      <changefreq>weekly</changefreq>
+      <priority>0.5</priority>
+    </url>
+  
+    <url>
+      <loc>/</loc>
+      
+      <changefreq>weekly</changefreq>
+      <priority>0.5</priority>
+    </url>
+  
+    <url>
+      <loc>/posts/2019-01-12-is-intelligence-enough/</loc>
+      
+      <changefreq>weekly</changefreq>
+      <priority>0.5</priority>
+    </url>
+  
+    <url>
+      <loc>/categories/jekyll/</loc>
+      
+      <changefreq>weekly</changefreq>
+      <priority>0.5</priority>
+    </url>
+  
+    <url>
+      <loc>/posts/2020-01-11-markup-example/</loc>
+      
+      <changefreq>weekly</changefreq>
+      <priority>0.5</priority>
+    </url>
+  
+    <url>
+      <loc>/posts/</loc>
+      
+      <changefreq>weekly</changefreq>
+      <priority>0.5</priority>
+    </url>
+  
+    <url>
+      <loc>/posts/2020-01-12-powerful-things-markdown-editor/</loc>
+      
+      <changefreq>weekly</changefreq>
+      <priority>0.5</priority>
+    </url>
+  
+    <url>
+      <loc>/privacy-policy/</loc>
+      
+      <changefreq>weekly</changefreq>
+      <priority>0.5</priority>
+    </url>
+  
+    <url>
+      <loc>/posts/2020-01-12-red-riding/</loc>
+      
+      <changefreq>weekly</changefreq>
+      <priority>0.5</priority>
+    </url>
+  
+    <url>
+      <loc>/tags/</loc>
+      
+      <changefreq>weekly</changefreq>
+      <priority>0.5</priority>
+    </url>
+  
+    <url>
+      <loc>/posts/2018-01-12-tree-of-codes/</loc>
+      
+      <changefreq>weekly</changefreq>
+      <priority>0.5</priority>
+    </url>
+  
+    <url>
+      <loc>/categories/tutorial/</loc>
+      
+      <changefreq>weekly</changefreq>
+      <priority>0.5</priority>
+    </url>
+  
+    <url>
+      <loc>/posts/2020-01-12-we-all-wait-for-summer/</loc>
+      
+      <changefreq>weekly</changefreq>
+      <priority>0.5</priority>
+    </url>
+  
+</urlset>

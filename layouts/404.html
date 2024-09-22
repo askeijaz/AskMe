@@ -1,0 +1,45 @@
+{{ define "main" }}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ .Title }} | {{ .Site.Title }}</title>
+    <link rel="icon" href="{{ .Site.BaseURL }}/assets/images/favicon.ico">
+    <link href="{{ .Site.BaseURL }}/assets/css/theme.css" rel="stylesheet">
+    <link href="{{ .Site.BaseURL }}/assets/css/custom.css" rel="stylesheet">
+    {{ if eq .Site.Params.environment "production" }}
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id={{ .Site.Params.ganalytics }}"></script>
+    <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', '{{ .Site.Params.ganalytics }}');
+    </script>
+    {{ end }}
+</head>
+<body>
+    <header>
+        <!-- Add header content here -->
+        <nav>
+            <!-- Add navigation links here -->
+            <a href="{{ .Site.BaseURL }}">Home</a>
+        </nav>
+    </header>
+    
+    <main class="container">
+        <h1 class="page-title">404 - Page not found</h1>
+        <p>Sorry, but the page you were trying to view does not exist.</p>
+        <a href="{{ .Site.BaseURL }}" class="btn btn-primary">Go to Homepage</a>
+    </main>
+    
+    <footer>
+        <!-- Add footer content here -->
+        <div class="copyright">
+            Copyright © {{ .Site.Title }}. All rights reserved.
+        </div>
+    </footer>
+</body>
+</html>
+{{ end }}

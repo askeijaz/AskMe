@@ -1,0 +1,43 @@
+[menu]
+  [[menu.topmenu]]
+    name = "Home"
+    url = "/"
+    weight = 1
+
+  [[menu.topmenu]]
+    name = "About"
+    url = "/about/"
+    weight = 2
+
+  [[menu.topmenu]]
+    name = "Contact"
+    url = "/contact/"
+    weight = 3
+
+  [[menu.topmenu]]
+    name = "Get this theme"
+    url = "https://www.askme.com/"
+    weight = 4
+    classes = "ml-2 btn btn-dark text-white px-3"
+    external = true
+
+  [[menu.footermenu]]
+    name = "Home"
+    url = "/"
+    weight = 1
+
+  [[menu.footermenu]]
+    name = "Privacy Policy"
+    url = "/privacy-policy/"
+    weight = 2
+
+  [[menu.footermenu]]
+    name = "Contact"
+    url = "/contact/"
+    weight = 3
+
+  [[menu.footermenu]]
+    name = "Download"
+    url = "https://www.askme.com/"
+    weight = 4
+    external = true
